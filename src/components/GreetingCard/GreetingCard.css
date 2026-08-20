@@ -1,0 +1,47 @@
+.greeting-card{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+background:white;
+
+padding:28px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.greeting-card h1{
+
+font-size:34px;
+
+margin-bottom:8px;
+
+color:#1f2937;
+
+}
+
+.greeting-card p{
+
+color:#6b7280;
+
+font-size:17px;
+
+}
+
+.top-icons{
+
+display:flex;
+
+gap:20px;
+
+align-items:center;
+
+color:#7C3AED;
+
+}

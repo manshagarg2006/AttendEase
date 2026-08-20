@@ -1,0 +1,175 @@
+.edit-attendance-card {
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 25px 28px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 8px 25px rgba(31, 41, 55, 0.06);
+
+    border: 1px solid #eeeaff;
+}
+
+
+.edit-attendance-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+}
+
+
+.edit-attendance-header h2 {
+    margin: 0;
+
+    font-size: 21px;
+
+    color: #111827;
+}
+
+
+.edit-attendance-header p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.close-edit {
+    border: none;
+
+    background: #f3f4f6;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 9px;
+
+    font-size: 20px;
+
+    color: #64748b;
+
+    cursor: pointer;
+}
+
+
+.edit-attendance-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.edit-attendance-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 15px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+}
+
+
+.edit-attendance-row > span {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+.edit-numbers {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+
+.edit-numbers input {
+    width: 65px;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    border: 1px solid #dfe3ea;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+.edit-numbers input:focus {
+    border-color: #8b5cf6;
+}
+
+
+.edit-numbers b {
+    color: #94a3b8;
+}
+
+
+.edit-attendance-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.cancel-edit,
+.save-edit {
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.cancel-edit {
+    background: #f3f4f6;
+
+    color: #475569;
+}
+
+
+.save-edit {
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+.save-edit:hover {
+    background: #6d28d9;
+}

@@ -1,0 +1,81 @@
+.attendance-ring{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+background:white;
+
+padding:30px;
+
+border-radius:22px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.circle{
+
+width:170px;
+
+height:170px;
+
+border-radius:50%;
+
+border:14px solid #7C3AED;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.circle h1{
+
+font-size:42px;
+
+color:#7C3AED;
+
+}
+
+.circle p{
+
+color:#6b7280;
+
+}
+
+.attendance-info{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.attendance-info h2{
+
+font-size:28px;
+
+}
+
+.attendance-info h3{
+
+color:#7C3AED;
+
+font-size:34px;
+
+}
+
+.attendance-info p{
+
+color:#6b7280;
+
+}

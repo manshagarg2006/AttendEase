@@ -1,0 +1,561 @@
+.dashboard{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+    padding:30px;
+
+    background:#F7F8FC;
+
+    min-height:100vh;
+
+}
+
+.top-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+.bottom-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+@media(max-width:1100px){
+
+.top-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.bottom-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ================================
+   LEAVE PLANNER
+================================ */
+
+.leave-planner,
+.planner-card,
+.quick-planner {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    height: fit-content;
+}
+
+.leave-planner h2,
+.planner-card h2,
+.quick-planner h2 {
+    font-size: 28px;
+    margin: 0 0 14px;
+    color: #111827;
+}
+
+.leave-planner p,
+.planner-card p,
+.quick-planner p {
+    color: #64748B;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.leave-planner button,
+.planner-card button,
+.quick-planner button {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.leave-planner button:hover,
+.planner-card button:hover,
+.quick-planner button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(124, 58, 237, 0.25);
+}
+/* ================================
+   DASHBOARD CONTENT LAYOUT
+================================ */
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(320px, 0.85fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.dashboard-left,
+.dashboard-right {
+    min-width: 0;
+}
+
+.dashboard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ==============================
+   DASHBOARD MAIN GRID
+================================ */
+
+.dashboard-page {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Main 2-column layout */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+
+    gap: 24px;
+
+    width: 100%;
+
+    align-items: start;
+}
+
+
+/* LEFT COLUMN */
+
+.dashboard-left {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    min-width: 0;
+}
+
+
+/* RIGHT COLUMN */
+
+.dashboard-right {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    min-width: 0;
+}
+
+
+/* Make sure cards stay inside their columns */
+
+.dashboard-left > *,
+.dashboard-right > * {
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* Prevent cards from overlapping */
+
+.subject-health,
+.today-card,
+.attention-card,
+.planner-card {
+    position: relative;
+
+    height: auto;
+
+    min-height: 0;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-left,
+    .dashboard-right {
+        width: 100%;
+    }
+}
+.attendance-edit-bar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 20px;
+
+    padding: 18px 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeaff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 6px 20px rgba(31, 41, 55, 0.04);
+}
+
+
+.attendance-edit-bar strong {
+    display: block;
+
+    color: #1e293b;
+
+    font-size: 15px;
+}
+
+
+.attendance-edit-bar span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+.attendance-edit-bar button {
+    border: none;
+
+    background: #f3e8ff;
+
+    color: #7c3aed;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+.attendance-edit-bar button:hover {
+    background: #7c3aed;
+
+    color: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+
+    .attendance-edit-bar {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+/* =========================================
+   EDIT ATTENDANCE PANEL
+========================================= */
+
+.attendance-edit-panel {
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 22px 0 25px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #eee9ff;
+
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(31, 41, 55, 0.06);
+}
+
+
+/* HEADER */
+
+.attendance-edit-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.attendance-edit-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #111827;
+}
+
+.attendance-edit-header p {
+    margin: 6px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* CLOSE BUTTON */
+
+.attendance-close-button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease;
+}
+
+.attendance-close-button:hover {
+    background: #fee2e2;
+
+    color: #ef4444;
+}
+
+
+/* SUBJECT LIST */
+
+.attendance-edit-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* EACH SUBJECT */
+
+.attendance-edit-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 17px;
+
+    background: #f8fafc;
+
+    border: 1px solid #f1f5f9;
+
+    border-radius: 13px;
+}
+
+.attendance-edit-row > span {
+    color: #1e293b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* INPUTS */
+
+.attendance-edit-inputs {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.attendance-edit-inputs input {
+    width: 72px;
+
+    height: 40px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dbe1e8;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.attendance-edit-inputs input:focus {
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.attendance-edit-inputs b {
+    color: #94a3b8;
+
+    font-size: 16px;
+}
+
+
+/* BOTTOM BUTTONS */
+
+.attendance-edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.attendance-cancel-button,
+.attendance-save-button {
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* CANCEL */
+
+.attendance-cancel-button {
+    background: #f1f5f9;
+
+    color: #475569;
+}
+
+.attendance-cancel-button:hover {
+    background: #e2e8f0;
+}
+
+
+/* SAVE */
+
+.attendance-save-button {
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #a855f7
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 12px rgba(124, 58, 237, 0.2);
+}
+
+.attendance-save-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(124, 58, 237, 0.25);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .attendance-edit-panel {
+        padding: 20px;
+    }
+
+    .attendance-edit-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .attendance-edit-inputs {
+        width: 100%;
+    }
+
+    .attendance-edit-inputs input {
+        flex: 1;
+    }
+
+    .attendance-edit-actions {
+        width: 100%;
+    }
+
+    .attendance-cancel-button,
+    .attendance-save-button {
+        flex: 1;
+    }
+}

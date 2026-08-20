@@ -1,0 +1,481 @@
+.timetable-page {
+    padding: 10px 5px 40px;
+    max-width: 1100px;
+}
+
+
+/* HEADER */
+
+.timetable-label {
+    margin: 0 0 7px;
+
+    color: #8b5cf6;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.timetable-header h1 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 32px;
+}
+
+.timetable-header p {
+    color: #64748b;
+
+    margin: 8px 0 0;
+
+    line-height: 1.5;
+}
+
+
+/* DAYS */
+
+.day-selector {
+    display: flex;
+
+    gap: 8px;
+
+    margin: 25px 0 18px;
+
+    flex-wrap: wrap;
+}
+
+.day-button {
+    border: 1px solid #e5e7eb;
+
+    background: white;
+
+    color: #64748b;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.day-button:hover {
+    border-color: #c4b5fd;
+
+    color: #7c3aed;
+}
+
+.day-button.active {
+    background: #7c3aed;
+
+    color: white;
+
+    border-color: #7c3aed;
+}
+
+
+/* TIMETABLE CARD */
+
+.timetable-card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 41, 55, 0.05);
+
+    border: 1px solid #eeeaff;
+}
+
+.selected-day-header {
+    margin-bottom: 20px;
+}
+
+.selected-day-header h2 {
+    margin: 0;
+
+    color: #111827;
+}
+
+.selected-day-header p {
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* SLOT */
+
+.timetable-slot {
+    display: grid;
+
+    grid-template-columns: 185px 1fr;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 95px;
+
+    border-top: 1px solid #f1f5f9;
+}
+
+.slot-time {
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.scheduled-class {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border-radius: 13px;
+}
+
+.scheduled-class h3 {
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 16px;
+}
+
+.class-title-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.lab-badge {
+    padding: 4px 7px;
+
+    border-radius: 6px;
+
+    background: #ede9fe;
+
+    color: #7c3aed;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.attendance-parent {
+    margin: 6px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.edit-slot-button {
+    border: none;
+
+    background: #f3e8ff;
+
+    color: #7c3aed;
+
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.edit-slot-button:hover {
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+/* ADD */
+
+.add-class-button {
+    width: 100%;
+
+    border: 1px dashed #cbd5e1;
+
+    background: #ffffff;
+
+    color: #94a3b8;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-weight: 500;
+}
+
+.add-class-button:hover {
+    border-color: #8b5cf6;
+
+    color: #7c3aed;
+
+    background: #faf5ff;
+}
+
+
+/* LUNCH */
+
+.lunch-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+    padding: 17px 22px;
+
+    border-radius: 16px;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+}
+
+.lunch-icon {
+    font-size: 22px;
+}
+
+.lunch-card strong {
+    display: block;
+
+    color: #9a3412;
+}
+
+.lunch-card span:last-child {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #c2410c;
+
+    font-size: 12px;
+}
+
+
+/* MODAL */
+
+.timetable-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.45);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+.timetable-modal {
+    width: 100%;
+
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 28px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.18);
+}
+
+.modal-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    color: #111827;
+}
+
+.modal-header p {
+    margin: 5px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+.modal-close {
+    border: none;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 9px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.timetable-modal label {
+    display: block;
+
+    margin: 15px 0 7px;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.timetable-modal input,
+.timetable-modal select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 12px;
+
+    border: 1px solid #dbe1e8;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.timetable-modal input:focus,
+.timetable-modal select:focus {
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.modal-help {
+    margin: 6px 0 0;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 25px;
+}
+
+.delete-class-button,
+.cancel-class-button,
+.save-class-button {
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.delete-class-button {
+    margin-right: auto;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+.cancel-class-button {
+    background: #f1f5f9;
+
+    color: #475569;
+}
+
+.save-class-button {
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .timetable-slot {
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+        padding: 18px 0;
+    }
+
+    .slot-time {
+        font-size: 12px;
+    }
+
+    .scheduled-class {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}

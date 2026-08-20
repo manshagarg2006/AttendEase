@@ -1,0 +1,294 @@
+.today-card {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 41, 55, 0.05);
+}
+
+.today-header h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 25px;
+}
+
+.today-header p {
+    margin: 8px 0 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.class-count {
+    margin-top: 18px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.class-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 5px;
+}
+
+.class-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    background: #f8fafc;
+
+    border-radius: 17px;
+}
+
+.class-info h3 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 19px;
+}
+
+.class-name-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.today-lab-badge {
+    background: #ede9fe;
+
+    color: #7c3aed;
+
+    padding: 4px 7px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.class-info p {
+    margin: 12px 0 0;
+
+    color: #334155;
+
+    font-size: 14px;
+}
+
+.class-info small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+.attendance-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.attendance-buttons button {
+    border-radius: 11px;
+
+    padding: 11px 17px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.present {
+    background: white;
+
+    color: #16a34a;
+
+    border: 1px solid #bbf7d0;
+}
+
+.present:hover,
+.present.selected {
+    background: #22c55e;
+
+    color: white;
+
+    border-color: #22c55e;
+}
+
+.absent {
+    background: white;
+
+    color: #ef4444;
+
+    border: 1px solid #fecaca;
+}
+
+.absent:hover,
+.absent.selected {
+    background: #ef4444;
+
+    color: white;
+
+    border-color: #ef4444;
+}
+
+.edit-attendance-button {
+    background: #f3e8ff;
+
+    color: #7c3aed;
+
+    border: none;
+}
+
+.edit-attendance-button:hover {
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+/* HOLIDAY */
+
+.holiday-message {
+    margin-top: 25px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #faf5ff;
+
+    border-radius: 18px;
+}
+
+.holiday-icon {
+    font-size: 35px;
+}
+
+.holiday-message h3 {
+    margin: 10px 0 5px;
+
+    color: #7c3aed;
+
+    font-size: 20px;
+}
+
+.holiday-message p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .class-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .attendance-buttons {
+        width: 100%;
+    }
+
+    .attendance-buttons button {
+        flex: 1;
+    }
+
+}
+/* =========================================
+   ATTENDANCE AREA
+========================================= */
+
+.attendance-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =========================================
+   PRESENT + ABSENT BUTTONS
+========================================= */
+
+.attendance-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =========================================
+   EDIT BUTTON
+========================================= */
+
+.edit-attendance {
+    padding: 10px 18px;
+
+    background: #ffffff;
+    color: #555;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.edit-attendance:hover {
+    background: #f5f5f5;
+    border-color: #bdbdbd;
+    color: #333;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.edit-attendance:active {
+    transform: translateY(0);
+}
