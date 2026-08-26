@@ -8,21 +8,23 @@ import {
 } from "lucide-react";
 
 import "./Sidebar.css";
+import logo from "../../assets/attendease-logo.png";
 
 
 function Sidebar() {
 
     return (
-
         <aside className="sidebar">
 
             {/* LOGO */}
 
             <div className="sidebar-logo">
 
-                <div className="logo-icon">
-                    A
-                </div>
+                <img
+                    src={logo}
+                    alt="AttendEase Logo"
+                    className="logo-image"
+                />
 
                 <div>
                     <h2>
@@ -89,6 +91,17 @@ function Sidebar() {
                     </span>
                 </NavLink>
 
+                <NavLink
+    to="/calendar"
+    className="sidebar-link"
+>
+    <CalendarDays size={20} />
+
+    <span>
+        Calendar
+    </span>
+</NavLink>
+
 
                 <NavLink
                     to="/settings"
@@ -129,7 +142,6 @@ function Sidebar() {
             </div>
 
         </aside>
-
     );
 }
 

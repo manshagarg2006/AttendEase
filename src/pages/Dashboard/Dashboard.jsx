@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-import Layout from "../../components/Layout/Layout";
 import DashboardHeader from "./DashboardHeader/DashboardHeader";
 
 import SubjectHealth from "../../components/SubjectHealth/SubjectHealth";
@@ -23,6 +22,11 @@ function getTodayName() {
         }
     );
 }
+
+
+/* ==========================================
+   GET TODAY'S DATE KEY
+========================================== */
 
 function getTodayKey() {
     const today = new Date();
@@ -89,16 +93,6 @@ function getTodayClasses() {
                     type:
                         data.type || "lecture",
 
-                    /*
-                     * For LABS:
-                     *
-                     * SDE LAB
-                     * attendanceSubject = SDE
-                     *
-                     * Therefore attendance is stored
-                     * under SDE.
-                     */
-
                     attendanceSubject:
                         data.attendanceSubject ||
                         data.subject ||
@@ -145,14 +139,6 @@ function cleanSubjectName(name) {
     let cleaned =
         name.trim();
 
-    /*
-     * Remove LAB from subject names.
-     *
-     * Example:
-     * SDE LAB       → SDE
-     * SDE LABORATORY → SDE
-     */
-
     cleaned =
         cleaned
             .replace(/\s+LAB$/i, "")
@@ -161,8 +147,6 @@ function cleanSubjectName(name) {
 
     return cleaned;
 }
-
-
 /* ==========================================
    GET SUBJECTS FROM TIMETABLE
 ========================================== */
@@ -275,10 +259,6 @@ function Dashboard() {
                     "attendEaseSubjects"
                 );
 
-            /*
-             * No saved attendance yet.
-             */
-
             if (!saved) {
                 return timetableSubjects;
             }
@@ -287,13 +267,6 @@ function Dashboard() {
 
                 const savedSubjects =
                     JSON.parse(saved);
-
-                /*
-                 * Timetable tells us which subjects exist.
-                 *
-                 * Saved attendance tells us
-                 * attended / total.
-                 */
 
                 return timetableSubjects.map(
                     (timetableSubject) => {
@@ -356,53 +329,41 @@ function Dashboard() {
        TODAY'S ATTENDANCE STATUS
     ========================================== */
 
-    /*
-     * IMPORTANT:
-     *
-     * Key = class ID
-     *
-     * Example:
-     * Monday_1 → present
-     * Monday_2 → absent
-     *
-     * This prevents two classes of the same
-     * subject from interfering with each other.
-     */
-
     const [
-    attendanceStatus,
-    setAttendanceStatus
-] = useState(() => {
+        attendanceStatus,
+        setAttendanceStatus
+    ] = useState(() => {
 
-    const saved =
-        localStorage.getItem(
-            "attendEaseDailyAttendance"
-        );
+        const saved =
+            localStorage.getItem(
+                "attendEaseDailyAttendance"
+            );
 
-    if (!saved) {
-        return {};
-    }
+        if (!saved) {
+            return {};
+        }
 
-    try {
+        try {
 
-        const allAttendance =
-            JSON.parse(saved);
+            const allAttendance =
+                JSON.parse(saved);
 
-        const today =
-            getTodayKey();
+            const today =
+                getTodayKey();
 
-        return allAttendance[today] || {};
+            return allAttendance[today] || {};
 
-    } catch (error) {
+        } catch (error) {
 
-        console.error(
-            "Unable to load today's attendance:",
-            error
-        );
+            console.error(
+                "Unable to load today's attendance:",
+                error
+            );
 
-        return {};
-    }
-});
+            return {};
+        }
+    });
+
 
     /* ==========================================
        EDIT ATTENDANCE PANEL
@@ -484,8 +445,6 @@ function Dashboard() {
                 )
         );
     };
-
-
     /* ==========================================
        SAVE MANUAL ATTENDANCE
     ========================================== */
@@ -510,9 +469,8 @@ function Dashboard() {
                 })
             );
 
-        /*
-         * Validation
-         */
+
+        /* Validation */
 
         for (
             const subject
@@ -534,17 +492,15 @@ function Dashboard() {
             }
         }
 
-        /*
-         * Update React state
-         */
+
+        /* Update React state */
 
         setSubjects(
             updatedSubjects
         );
 
-        /*
-         * Save permanently
-         */
+
+        /* Save permanently */
 
         localStorage.setItem(
             "attendEaseSubjects",
@@ -553,9 +509,8 @@ function Dashboard() {
             )
         );
 
-        /*
-         * Close editor
-         */
+
+        /* Close editor */
 
         setEditingAttendance(false);
     };
@@ -570,11 +525,6 @@ function Dashboard() {
         status
     ) => {
 
-        /*
-         * Find the actual class using
-         * the unique class ID.
-         */
-
         const selectedClass =
             todayClasses.find(
                 (item) =>
@@ -585,26 +535,16 @@ function Dashboard() {
             return;
         }
 
-        /*
-         * Use attendanceSubject.
-         *
-         * This means:
-         *
-         * SDE LAB → SDE
-         *
-         * so labs don't create a separate
-         * attendance subject.
-         */
+
+        /* Get attendance subject */
 
         const attendanceSubject =
             cleanSubjectName(
                 selectedClass.attendanceSubject
             );
 
-        /*
-         * Check whether this particular
-         * class has already been marked.
-         */
+
+        /* Check previous status */
 
         const previousStatus =
             attendanceStatus[classId];
@@ -615,11 +555,6 @@ function Dashboard() {
         ====================================== */
 
         if (status === "edit") {
-
-            /*
-             * Nothing to edit if there is
-             * no previous attendance.
-             */
 
             if (!previousStatus) {
                 return;
@@ -639,10 +574,8 @@ function Dashboard() {
                                     return subject;
                                 }
 
-                                /*
-                                 * PRESENT → remove
-                                 * attended + total
-                                 */
+
+                                /* PRESENT */
 
                                 if (
                                     previousStatus ===
@@ -668,10 +601,8 @@ function Dashboard() {
                                     };
                                 }
 
-                                /*
-                                 * ABSENT → remove
-                                 * total only
-                                 */
+
+                                /* ABSENT */
 
                                 if (
                                     previousStatus ===
@@ -694,9 +625,8 @@ function Dashboard() {
                             }
                         );
 
-                    /*
-                     * Save after editing.
-                     */
+
+                    /* Save after editing */
 
                     localStorage.setItem(
                         "attendEaseSubjects",
@@ -709,10 +639,8 @@ function Dashboard() {
                 }
             );
 
-            /*
-             * Remove today's status so
-             * Present/Absent can be selected again.
-             */
+
+            /* Remove today's status */
 
             setAttendanceStatus(
                 (current) => {
@@ -758,12 +686,8 @@ function Dashboard() {
                                 return subject;
                             }
 
-                            /*
-                             * PRESENT
-                             *
-                             * +2 attended
-                             * +2 total
-                             */
+
+                            /* PRESENT */
 
                             if (
                                 status ===
@@ -783,11 +707,8 @@ function Dashboard() {
                                 };
                             }
 
-                            /*
-                             * ABSENT
-                             *
-                             * +2 total
-                             */
+
+                            /* ABSENT */
 
                             if (
                                 status ===
@@ -807,9 +728,8 @@ function Dashboard() {
                         }
                     );
 
-                /*
-                 * Save attendance immediately.
-                 */
+
+                /* Save attendance */
 
                 localStorage.setItem(
                     "attendEaseSubjects",
@@ -845,208 +765,202 @@ function Dashboard() {
 
     return (
 
-        <Layout>
+        <div className="dashboard-page">
 
-            <div className="dashboard-page">
-
-                <DashboardHeader
-                    onEditAttendance={
-                        openAttendanceEditor
-                    }
-                />
+            <DashboardHeader
+                onEditAttendance={
+                    openAttendanceEditor
+                }
+            />
 
 
-                {/* ==================================
-                    EDIT ATTENDANCE
-                ================================== */}
+            {/* ==================================
+                EDIT ATTENDANCE
+            ================================== */}
 
-                {editingAttendance && (
+            {editingAttendance && (
 
-                    <div className="attendance-edit-panel">
+                <div className="attendance-edit-panel">
 
-                        <div className="attendance-edit-header">
+                    <div className="attendance-edit-header">
 
-                            <div>
+                        <div>
 
-                                <h2>
-                                    Edit Attendance
-                                </h2>
+                            <h2>
+                                Edit Attendance
+                            </h2>
 
-                                <p>
-                                    Enter your current
-                                    attendance from college.
-                                </p>
-
-                            </div>
-
-                            <button
-                                className="attendance-close-button"
-                                onClick={() =>
-                                    setEditingAttendance(
-                                        false
-                                    )
-                                }
-                            >
-                                ×
-                            </button>
+                            <p>
+                                Enter your current
+                                attendance from college.
+                            </p>
 
                         </div>
 
+                        <button
+                            className="attendance-close-button"
+                            onClick={() =>
+                                setEditingAttendance(
+                                    false
+                                )
+                            }
+                        >
+                            ×
+                        </button>
 
-                        <div className="attendance-edit-list">
+                    </div>
 
-                            {editValues.map(
-                                (subject) => (
 
-                                    <div
-                                        className="attendance-edit-row"
-                                        key={subject.id}
-                                    >
+                    <div className="attendance-edit-list">
 
-                                        <span>
-                                            {
-                                                subject.name
+                        {editValues.map(
+                            (subject) => (
+
+                                <div
+                                    className="attendance-edit-row"
+                                    key={subject.id}
+                                >
+
+                                    <span>
+                                        {
+                                            subject.name
+                                        }
+                                    </span>
+
+
+                                    <div className="attendance-edit-inputs">
+
+                                        <input
+                                            type="number"
+                                            min="0"
+                                            value={
+                                                subject.attended
                                             }
-                                        </span>
+                                            onChange={(
+                                                event
+                                            ) =>
+                                                changeEditValue(
+                                                    subject.id,
+                                                    "attended",
+                                                    event.target.value
+                                                )
+                                            }
+                                        />
 
+                                        <b>
+                                            /
+                                        </b>
 
-                                        <div className="attendance-edit-inputs">
-
-                                            <input
-                                                type="number"
-                                                min="0"
-                                                value={
-                                                    subject.attended
-                                                }
-                                                onChange={(
-                                                    event
-                                                ) =>
-                                                    changeEditValue(
-                                                        subject.id,
-                                                        "attended",
-                                                        event.target.value
-                                                    )
-                                                }
-                                            />
-
-                                            <b>
-                                                /
-                                            </b>
-
-                                            <input
-                                                type="number"
-                                                min="0"
-                                                value={
-                                                    subject.total
-                                                }
-                                                onChange={(
-                                                    event
-                                                ) =>
-                                                    changeEditValue(
-                                                        subject.id,
-                                                        "total",
-                                                        event.target.value
-                                                    )
-                                                }
-                                            />
-
-                                        </div>
+                                        <input
+                                            type="number"
+                                            min="0"
+                                            value={
+                                                subject.total
+                                            }
+                                            onChange={(
+                                                event
+                                            ) =>
+                                                changeEditValue(
+                                                    subject.id,
+                                                    "total",
+                                                    event.target.value
+                                                )
+                                            }
+                                        />
 
                                     </div>
+
+                                </div>
+                            )
+                        )}
+
+                    </div>
+
+
+                    <div className="attendance-edit-actions">
+
+                        <button
+                            className="attendance-cancel-button"
+                            onClick={() =>
+                                setEditingAttendance(
+                                    false
                                 )
-                            )}
-
-                        </div>
-
-
-                        <div className="attendance-edit-actions">
-
-                            <button
-                                className="attendance-cancel-button"
-                                onClick={() =>
-                                    setEditingAttendance(
-                                        false
-                                    )
-                                }
-                            >
-                                Cancel
-                            </button>
-
-
-                            <button
-                                className="attendance-save-button"
-                                onClick={
-                                    saveAttendanceEdit
-                                }
-                            >
-                                Save Changes
-                            </button>
-
-                        </div>
-
-                    </div>
-                )}
-
-
-                {/* ==================================
-                    DASHBOARD GRID
-                ================================== */}
-
-                <div className="dashboard-grid">
-
-
-                    {/* LEFT */}
-
-                    <div className="dashboard-left">
-
-                        <SubjectHealth
-                            subjects={
-                                subjects
                             }
-                        />
+                        >
+                            Cancel
+                        </button>
 
 
-                        <TodayClasses
-                            todayClasses={
-                                todayClasses
+                        <button
+                            className="attendance-save-button"
+                            onClick={
+                                saveAttendanceEdit
                             }
-
-                            attendanceStatus={
-                                attendanceStatus
-                            }
-
-                            onAttendanceChange={
-                                updateAttendance
-                            }
-                        />
+                        >
+                            Save Changes
+                        </button>
 
                     </div>
 
+                </div>
+            )}
+            {/* ==================================
+                DASHBOARD GRID
+            ================================== */}
 
-                    {/* RIGHT */}
-
-                    <div className="dashboard-right">
-
-                        <AttentionCard
-                            subjects={
-                                subjects
-                            }
-                        />
+            <div className="dashboard-grid">
 
 
-                        <PlannerCard
-                            subjects={
-                                subjects
-                            }
-                        />
+                {/* LEFT */}
 
-                    </div>
+                <div className="dashboard-left">
+
+                    <SubjectHealth
+                        subjects={
+                            subjects
+                        }
+                    />
+
+
+                    <TodayClasses
+                        todayClasses={
+                            todayClasses
+                        }
+
+                        attendanceStatus={
+                            attendanceStatus
+                        }
+
+                        onAttendanceChange={
+                            updateAttendance
+                        }
+                    />
+
+                </div>
+
+
+                {/* RIGHT */}
+
+                <div className="dashboard-right">
+
+                    <AttentionCard
+                        subjects={
+                            subjects
+                        }
+                    />
+
+
+                    <PlannerCard
+                        subjects={
+                            subjects
+                        }
+                    />
 
                 </div>
 
             </div>
 
-        </Layout>
+        </div>
     );
 }
 

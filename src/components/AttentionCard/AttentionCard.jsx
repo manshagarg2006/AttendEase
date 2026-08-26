@@ -1,147 +1,142 @@
+import { AlertTriangle, CheckCircle } from "lucide-react";
 import "./AttentionCard.css";
 
+function AttentionCard({ subjects = [] }) {
 
-function AttentionCard({ subjects }) {
-
-
-    const getSafeClasses = (attended, total) => {
-
-        let safeClasses = 0;
-
-        let futureTotal = total;
-
-
-        while (
-            attended / (futureTotal + 2) >= 0.75
-        ) {
-
-            safeClasses++;
-
-            futureTotal += 2;
-
-        }
+    const minimumAttendance =
+        Number(
+            localStorage.getItem(
+                "attendEaseMinimumAttendance"
+            )
+        ) || 75;
 
 
-        return safeClasses;
-    };
+    const subjectsNeedingAttention =
+        subjects.filter((subject) => {
+
+            const attended =
+                Number(subject.attended) || 0;
+
+            const total =
+                Number(subject.total) || 0;
+
+            if (total === 0) {
+                return false;
+            }
+
+            const percentage =
+                (attended / total) * 100;
+
+            return percentage < minimumAttendance;
+        });
 
 
-    const getMessage = (attended, total) => {
-
-        const percentage =
-            (attended / total) * 100;
-
-
-        const safeClasses =
-            getSafeClasses(attended, total);
-
-
-        if (percentage <= 75) {
-
-            return "Attend your next class";
-
-        }
-
-
-        if (safeClasses === 1) {
-
-            return "Only 1 safe class left";
-
-        }
-
-
-        return `Can miss ${safeClasses} more classes`;
-
-    };
-
-
-    const aiAlgorithms = subjects.find(
-        (subject) =>
-            subject.name === "AI Algorithms"
-    );
-
-
-    const dbms = subjects.find(
-        (subject) =>
-            subject.name === "DBMS"
-    );
+    const hasAttention =
+        subjectsNeedingAttention.length > 0;
 
 
     return (
 
-        <div className="attention-card">
+        <div
+            className={
+                hasAttention
+                    ? "attention-card"
+                    : "attention-card attention-good"
+            }
+        >
 
+            <div className="attention-header">
 
-            <h2>
-                ⚠ Attention Needed
-            </h2>
+                <div className="attention-icon">
 
+                    {hasAttention ? (
+                        <AlertTriangle size={24} />
+                    ) : (
+                        <CheckCircle size={24} />
+                    )}
 
-            {aiAlgorithms && (
+                </div>
 
-                <div className="attention-item critical">
+                <div>
 
-                    <h3>
-                        AI Algorithms
-                    </h3>
-
+                    <h2>
+                        {hasAttention
+                            ? "Attention Needed"
+                            : "All Good"}
+                    </h2>
 
                     <p>
-                        Current Attendance:{" "}
-                        {Math.round(
-                            (aiAlgorithms.attended /
-                                aiAlgorithms.total) *
-                                100
-                        )}%
-                    </p>
-
-
-                    <p>
-                        {getMessage(
-                            aiAlgorithms.attended,
-                            aiAlgorithms.total
-                        )}
+                        {hasAttention
+                            ? "Some subjects need your attention."
+                            : "Your attendance is on track."}
                     </p>
 
                 </div>
 
-            )}
+            </div>
 
 
-            {dbms && (
+            {hasAttention && (
 
-                <div className="attention-item warning">
+                <div className="attention-list">
 
-                    <h3>
-                        DBMS
-                    </h3>
+                    {subjectsNeedingAttention.map(
+                        (subject) => {
 
+                            const attended =
+                                Number(
+                                    subject.attended
+                                ) || 0;
 
-                    <p>
-                        Current Attendance:{" "}
-                        {Math.round(
-                            (dbms.attended /
-                                dbms.total) *
-                                100
-                        )}%
-                    </p>
+                            const total =
+                                Number(
+                                    subject.total
+                                ) || 0;
 
+                            const percentage =
+                                total > 0
+                                    ? (
+                                        attended /
+                                        total
+                                    ) * 100
+                                    : 0;
 
-                    <p>
-                        {getMessage(
-                            dbms.attended,
-                            dbms.total
-                        )}
-                    </p>
+                            return (
+
+                                <div
+                                    className="attention-item"
+                                    key={subject.id}
+                                >
+
+                                    <div>
+
+                                        <strong>
+                                            {subject.name}
+                                        </strong>
+
+                                        <span>
+                                            {percentage.toFixed(1)}%
+                                            {" "}attendance
+                                        </span>
+
+                                    </div>
+
+                                    <span className="attention-warning">
+                                        Below {minimumAttendance}%
+                                    </span>
+
+                                </div>
+
+                            );
+                        }
+                    )}
 
                 </div>
 
             )}
 
         </div>
-
     );
 }
-
 
 export default AttentionCard;

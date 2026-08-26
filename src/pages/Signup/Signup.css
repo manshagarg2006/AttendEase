@@ -1,0 +1,264 @@
+/* =========================================
+   SIGNUP PAGE
+========================================= */
+
+.signup-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f5fb;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   SIGNUP CARD
+========================================= */
+
+.signup-card {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px 45px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 40px rgba(75, 35, 150, 0.12);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.signup-logo {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #5b21b6,
+        #7c3aed
+    );
+
+    border-radius: 20px;
+
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+
+    box-shadow: 0 8px 20px rgba(91, 33, 182, 0.25);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.signup-card h1 {
+    margin: 0;
+    text-align: center;
+
+    color: #171717;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+.signup-subtitle {
+    margin: 10px 0 30px;
+
+    text-align: center;
+
+    color: #777777;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.signup-card form {
+    width: 100%;
+}
+
+
+/* =========================================
+   FORM FIELD
+========================================= */
+
+.signup-field {
+    margin-bottom: 18px;
+}
+
+
+.signup-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #252525;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.signup-field input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d8d4df;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #222222;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+
+.signup-field input::placeholder {
+    color: #999999;
+}
+
+
+.signup-field input:focus {
+    border-color: #6d28d9;
+
+    box-shadow:
+        0 0 0 3px rgba(109, 40, 217, 0.10);
+}
+
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
+
+.signup-error {
+    margin: 5px 0 15px;
+
+    color: #dc2626;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* =========================================
+   SIGNUP BUTTON
+========================================= */
+
+.signup-button {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #5b21b6,
+        #7c3aed
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.signup-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(91, 33, 182, 0.25);
+}
+
+
+.signup-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LOGIN TEXT
+========================================= */
+
+.login-text {
+    margin: 25px 0 0;
+
+    text-align: center;
+
+    color: #777777;
+    font-size: 14px;
+}
+
+
+.login-text button {
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #5b21b6;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.login-text button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .signup-page {
+        padding: 20px;
+    }
+
+    .signup-card {
+        padding: 30px 25px;
+        border-radius: 20px;
+    }
+
+    .signup-card h1 {
+        font-size: 28px;
+    }
+
+}
+.signup-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}

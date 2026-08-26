@@ -262,3 +262,10 @@
         display: none;
     }
 }
+.logo-image {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    flex-shrink: 0;
+    border-radius: 14px;
+}

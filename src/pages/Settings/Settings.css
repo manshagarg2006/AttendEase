@@ -1,0 +1,556 @@
+/* =========================================
+   ATTENDEASE SETTINGS PAGE
+========================================= */
+
+.settings-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.settings-header {
+    margin-bottom: 28px;
+}
+
+.settings-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #252525;
+}
+
+.settings-header p {
+    margin: 8px 0 0;
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* =========================================
+   SETTINGS CARDS
+========================================= */
+
+.settings-card {
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid #eee6f7;
+    border-radius: 20px;
+
+    padding: 24px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 5px 18px rgba(80, 40, 120, 0.06);
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.settings-card-header {
+    margin-bottom: 22px;
+}
+
+.settings-card-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #333;
+}
+
+.settings-card-header p {
+    margin: 7px 0 0;
+
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* =========================================
+   PROFILE FORM
+========================================= */
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.settings-field {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.settings-field label {
+    width: 140px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+}
+
+.settings-field input {
+    width: 260px;
+
+    padding: 11px 13px;
+
+    border: 1px solid #ddd5e8;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: 0.2s;
+}
+
+.settings-field input:focus {
+    border-color: #6b2fd1;
+
+    box-shadow:
+        0 0 0 3px rgba(107, 47, 209, 0.08);
+}
+
+
+/* =========================================
+   SETTINGS OPTIONS
+========================================= */
+
+.settings-option {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #f0edf4;
+}
+
+.settings-option:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.settings-option > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.settings-option strong {
+    font-size: 15px;
+
+    color: #333;
+}
+
+.settings-option span {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.settings-option select {
+    width: 100px;
+
+    padding: 9px 12px;
+
+    border: 1px solid #ddd5e8;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #333;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.settings-option select:focus {
+    border-color: #6b2fd1;
+}
+
+
+/* =========================================
+   TOGGLE SWITCH
+========================================= */
+
+.settings-toggle {
+    position: relative;
+
+    width: 50px;
+    height: 27px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #d8d2df;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition: 0.25s;
+}
+
+.settings-toggle span {
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    left: 3px;
+    top: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.15);
+
+    transition: 0.25s;
+}
+
+.settings-toggle.active {
+    background: #6b2fd1;
+}
+
+.settings-toggle.active span {
+    transform: translateX(23px);
+}
+
+
+/* =========================================
+   DATA MANAGEMENT BUTTONS
+========================================= */
+
+.settings-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+/* =========================================
+   COMMON BUTTON
+========================================= */
+
+.settings-save,
+.settings-export,
+.settings-reset {
+    border: none;
+
+    border-radius: 11px;
+
+    padding: 11px 20px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* =========================================
+   SAVE
+========================================= */
+
+.settings-save {
+    background: #6b2fd1;
+
+    color: #ffffff;
+}
+
+.settings-save:hover {
+    background: #5424bd;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   EXPORT
+========================================= */
+
+.settings-export {
+    background: #f1e8ff;
+
+    color: #5424bd;
+}
+
+.settings-export:hover {
+    background: #e7d9fa;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+.settings-reset {
+    background: #fff0f0;
+
+    color: #c0392b;
+}
+
+.settings-reset:hover {
+    background: #ffe0e0;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-settings {
+    display: flex;
+
+    align-items: center;
+}
+
+.about-settings h2 {
+    margin: 0 0 6px;
+
+    color: #6b2fd1;
+
+    font-size: 20px;
+}
+
+.about-settings p {
+    margin: 0 0 5px;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+.about-settings span {
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   HOVER EFFECT ON CARDS
+========================================= */
+
+.settings-card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.settings-card:hover {
+    box-shadow:
+        0 8px 24px rgba(80, 40, 120, 0.09);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .settings-page {
+        padding: 20px;
+    }
+
+    .settings-header h1 {
+        font-size: 27px;
+    }
+
+    .settings-card {
+        padding: 20px;
+    }
+
+    .settings-field {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+    }
+
+    .settings-field label {
+        width: auto;
+    }
+
+    .settings-field input {
+        width: 100%;
+    }
+
+    .settings-option {
+        align-items: flex-start;
+    }
+
+    .settings-option select {
+        width: 90px;
+    }
+
+    .settings-buttons {
+        flex-direction: column;
+    }
+
+    .settings-save,
+    .settings-export,
+    .settings-reset {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode {
+    background: #17121f;
+    color: #f5f1fa;
+}
+
+body.dark-mode .layout {
+    background: #17121f;
+}
+
+body.dark-mode .main {
+    background: #17121f;
+}
+
+body.dark-mode .content {
+    background: #17121f;
+}
+
+
+/* SETTINGS PAGE */
+
+body.dark-mode .settings-page {
+    background: #17121f;
+}
+
+body.dark-mode .settings-header h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .settings-header p {
+    color: #b9b0c5;
+}
+
+
+/* CARDS */
+
+body.dark-mode .settings-card {
+    background: #241d2e;
+    border-color: #3b3048;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .settings-card-header h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .settings-card-header p {
+    color: #aaa0b5;
+}
+
+
+/* PROFILE INPUTS */
+
+body.dark-mode .settings-field label {
+    color: #eee8f4;
+}
+
+body.dark-mode .settings-field input {
+    background: #30273b;
+    border-color: #4a3d58;
+    color: #ffffff;
+}
+
+body.dark-mode .settings-field input::placeholder {
+    color: #9d93a8;
+}
+
+
+/* SETTINGS OPTIONS */
+
+body.dark-mode .settings-option {
+    border-color: #3b3048;
+}
+
+body.dark-mode .settings-option strong {
+    color: #ffffff;
+}
+
+body.dark-mode .settings-option span {
+    color: #aaa0b5;
+}
+
+
+/* SELECT */
+
+body.dark-mode .settings-option select {
+    background: #30273b;
+    border-color: #4a3d58;
+    color: #ffffff;
+}
+
+
+/* ABOUT */
+
+body.dark-mode .about-settings h2 {
+    color: #a875ff;
+}
+
+body.dark-mode .about-settings p {
+    color: #c0b6c9;
+}
+
+body.dark-mode .about-settings span {
+    color: #918699;
+}

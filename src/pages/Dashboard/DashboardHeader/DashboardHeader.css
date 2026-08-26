@@ -1,4 +1,8 @@
-.dashboard-page .dashboard-header {
+/* =========================================
+   DASHBOARD HEADER
+========================================= */
+
+.dashboard-header {
     width: 100%;
     height: 125px;
 
@@ -21,11 +25,11 @@
 }
 
 
-/* =========================
-   TEXT AREA
-========================= */
+/* =========================================
+   LEFT SIDE — GREETING
+========================================= */
 
-.dashboard-page .dashboard-header > div:first-child {
+.dashboard-header > div:first-child {
     display: flex;
     flex-direction: column;
 
@@ -38,9 +42,11 @@
 }
 
 
-.dashboard-page .dashboard-header h1 {
-    margin: 0 !important;
-    padding: 0 !important;
+/* Greeting */
+
+.dashboard-header h1 {
+    margin: 0;
+    padding: 0;
 
     font-size: 30px;
     line-height: 1.15;
@@ -53,9 +59,11 @@
 }
 
 
-.dashboard-page .dashboard-header p {
-    margin: 0 !important;
-    padding: 0 !important;
+/* Subtitle */
+
+.dashboard-header p {
+    margin: 0;
+    padding: 0;
 
     font-size: 15px;
     line-height: 1.4;
@@ -64,12 +72,13 @@
 }
 
 
-/* =========================
-   ICONS
-========================= */
+/* =========================================
+   RIGHT SIDE — ALL ACTIONS
+========================================= */
 
-.dashboard-page .header-icons {
+.header-actions {
     display: flex;
+
     align-items: center;
 
     gap: 10px;
@@ -79,89 +88,26 @@
 }
 
 
-.dashboard-page .header-icons svg {
-    width: 22px;
-    height: 22px;
+/* =========================================
+   EDIT ATTENDANCE BUTTON
+========================================= */
 
-    padding: 10px;
+.edit-attendance-btn {
+    height: 42px;
 
-    box-sizing: content-box;
+    padding: 0 16px;
 
-    color: #7c3aed;
+    box-sizing: border-box;
 
-    background: #faf8ff;
-
-    border: 1px solid #eee8ff;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-
-    transition: all 0.2s ease;
-}
-
-
-.dashboard-page .header-icons svg:last-child {
-    width: 25px;
-    height: 25px;
-}
-
-
-.dashboard-page .header-icons svg:hover {
-    background: #f3edff;
-
-    border-color: #ddd0ff;
-
-    transform: translateY(-1px);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 700px) {
-
-    .dashboard-page .dashboard-header {
-        height: auto;
-        min-height: 110px;
-
-        padding: 20px 22px;
-    }
-
-    .dashboard-page .dashboard-header h1 {
-        font-size: 25px;
-    }
-
-    .dashboard-page .dashboard-header p {
-        font-size: 14px;
-    }
-
-    .dashboard-page .header-icons svg {
-        width: 19px;
-        height: 19px;
-
-        padding: 8px;
-    }
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-
-.edit-attendance-header {
-    border: none;
-
-    background: #f3e8ff;
-
-    color: #7c3aed;
-
-    padding: 11px 17px;
+    border: 1px solid #e5d8ff;
 
     border-radius: 11px;
+
+    background: #f7f1ff;
+
+    color: #7c3aed;
+
+    font-family: inherit;
 
     font-size: 13px;
 
@@ -169,29 +115,208 @@
 
     cursor: pointer;
 
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    white-space: nowrap;
+
     transition: all 0.2s ease;
 }
 
 
-.edit-attendance-header:hover {
+.edit-attendance-btn:hover {
     background: #7c3aed;
+
+    border-color: #7c3aed;
 
     color: #ffffff;
 
     transform: translateY(-1px);
+
+    box-shadow: 0 5px 12px rgba(124, 58, 237, 0.18);
 }
 
 
+/* =========================================
+   NOTIFICATION + PROFILE BUTTONS
+========================================= */
+
+.header-icon-btn {
+    width: 42px;
+
+    height: 42px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border: 1px solid #e5d8ff;
+
+    border-radius: 11px;
+
+    background: #faf8ff;
+
+    color: #7c3aed;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================
+   ICONS
+========================================= */
+
+.header-icon-btn svg {
+    display: block;
+
+    width: 21px;
+
+    height: 21px;
+
+    color: currentColor;
+
+    stroke-width: 2;
+}
+
+
+/* Profile icon */
+
+.header-icon-btn:last-child svg {
+    width: 25px;
+
+    height: 25px;
+}
+
+
+/* =========================================
+   ICON HOVER
+========================================= */
+
+.header-icon-btn:hover {
+    background: #f3edff;
+
+    border-color: #d9c9ff;
+
+    color: #6d28d9;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media (max-width: 700px) {
 
-    .header-right {
-        gap: 10px;
+    .dashboard-header {
+        height: auto;
+
+        min-height: 110px;
+
+        padding: 20px 22px;
     }
 
-    .edit-attendance-header {
-        padding: 9px 12px;
+
+    .dashboard-header h1 {
+        font-size: 25px;
+    }
+
+
+    .dashboard-header p {
+        font-size: 14px;
+    }
+
+
+    .header-actions {
+        gap: 7px;
+    }
+
+
+    .edit-attendance-btn {
+        height: 38px;
+
+        padding: 0 12px;
 
         font-size: 12px;
     }
 
+
+    .header-icon-btn {
+        width: 38px;
+
+        height: 38px;
+    }
+
+
+    .header-icon-btn svg {
+        width: 19px;
+
+        height: 19px;
+    }
+
+
+    .header-icon-btn:last-child svg {
+        width: 22px;
+
+        height: 22px;
+    }
+}
+
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 480px) {
+
+    .dashboard-header {
+        padding: 18px;
+
+        gap: 15px;
+    }
+
+
+    .dashboard-header h1 {
+        font-size: 22px;
+    }
+
+
+    .dashboard-header p {
+        font-size: 13px;
+    }
+
+
+    .header-actions {
+        gap: 6px;
+    }
+
+
+    .edit-attendance-btn {
+        padding: 0 10px;
+
+        font-size: 11px;
+    }
+
+
+    .header-icon-btn {
+        width: 36px;
+
+        height: 36px;
+    }
 }

@@ -1,56 +1,45 @@
 import "./DashboardHeader.css";
-import {
-    Bell,
-    UserCircle2
-} from "lucide-react";
+import { Bell, UserCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
-
-function DashboardHeader({
-    onEditAttendance
-}) {
-
+function DashboardHeader({ onEditAttendance }) {
     return (
-
         <div className="dashboard-header">
 
             <div>
-
-                <h1>
-                    Good Evening 👋
-                </h1>
-
-                <p>
-                    Ready to conquer today's lectures?
-                </p>
-
+                <h1>Good Evening 👋</h1>
+                <p>Ready to conquer today's lectures?</p>
             </div>
 
-
-            <div className="header-right">
+            <div className="header-actions">
 
                 <button
-                    className="edit-attendance-header"
-                    onClick={
-                        onEditAttendance
-                    }
+                    className="edit-attendance-btn"
+                    onClick={onEditAttendance}
                 >
                     Edit Attendance
                 </button>
 
-
-                <div className="header-icons">
-
+                <button
+                    className="header-icon-btn"
+                    type="button"
+                    aria-label="Notifications"
+                >
                     <Bell size={26} />
+                </button>
 
-                    <UserCircle2 size={34} />
-
-                </div>
+                <Link
+                    to="/login"
+                    className="header-icon-btn"
+                    aria-label="Login"
+                >
+                    <UserCircle2 size={30} />
+                </Link>
 
             </div>
 
         </div>
     );
 }
-
 
 export default DashboardHeader;
